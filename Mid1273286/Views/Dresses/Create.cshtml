@@ -1,0 +1,67 @@
+﻿@model DressInputModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Create" asp-controller="Dresses" method="post" enctype="multipart/form-data">
+            <h3>Add new Dress</h3>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2" asp-for="DressName"></label>
+                <div class="col-6">
+                    <input asp-for="DressName" class="form-control" />
+                    <span asp-validation-for="DressName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2" asp-for="Price"></label>
+                <div class="col-6">
+                    <input type="text" asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2" asp-for="Size"></label>
+                <div class="col-6">
+                    <select class="form-select" asp-for="Size" asp-items="@Html.GetEnumSelectList<Size>()">
+                        <option value="" selected>Select one</option>
+                    </select>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2" asp-for="Picture"></label>
+                <div class="col-6">
+                    <input type="file" asp-for="Picture" class="form-control" />
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+               
+                <div class="col-6 offset-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="OnSale">
+                        <label class="form-check-label" >
+                           On sale?
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                
+                <div class="col-6 offset-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section scripts
+{
+    <script src="~/libs/jquery/jquery.js"></script>
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+    <script src="~/libs/jquery-validate/jquery.validate.unobtrusive.js"></script>
+}
+

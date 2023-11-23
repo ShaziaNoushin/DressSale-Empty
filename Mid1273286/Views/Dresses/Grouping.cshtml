@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Grouping";
+}
+
+<div class="row">
+    <div class="col-12">
+        @using (Html.BeginForm())
+        {
+            <button class="btn btn-primary" type="submit" name="groupby" value="dressname">Group By Dress Name</button>
+            <button class="btn btn-primary" type="submit" name="groupby" value="year month">Group By Year, Month</button>
+            <button class="btn btn-primary" type="submit" name="groupby" value="count">Group By Count</button>
+        }
+    </div>
+</div>
+
